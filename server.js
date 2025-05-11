@@ -11,7 +11,7 @@ let data = [
 
 app.get('/', (req, res) => res.send('Hello from Hompage'));
 
-app.get('/item', (req, res) => {
+app.get('/items', (req, res) => {
     const id = parseInt(req.params.id);
     const item = data.find(item => item.id ===id);
 
@@ -37,7 +37,7 @@ const itemIndex = data.findIndex(item =>item.id ===id);
 
 if (itemIndex !== -1) {
 data[itemIndex].name = req.body.name;
-res.json(data[indexIndex]);
+res.json(data[itemIndex]);
 } else {
     res.status(404).send('item not found');
 }
