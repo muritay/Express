@@ -9,6 +9,8 @@ let data = [
     {id: 2, name: 'item 2'}
 ];
 
+app.get('/', (req, res) => res.send('Hello from Hompage'));
+
 app.get('/item', (req, res) => {
     const id = parseInt(req.params.id);
     const item = data.find(item => item.id ===id);
@@ -22,7 +24,7 @@ app.get('/item', (req, res) => {
 
 app.post('/item', (req, res) => {
     const newItem = {
-        id: data.lenght + 1,
+        id: data.length + 1,
         name: req.body.name
     };
     data.push(newItem);
@@ -35,7 +37,7 @@ const itemIndex = data.findIndex(item =>item.id ===id);
 
 if (itemIndex !== -1) {
 data[itemIndex].name = req.body.name;
-res.json(data[indexInex]);
+res.json(data[indexIndex]);
 } else {
     res.status(404).send('item not found');
 }
